@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+nav{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    display: flex;
+    align-items: center;
+   
+}
+ nav > ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+   left: -220px;
+   
+   
+}
+h3 , ul{
+    position: relative;
+    left: 30px;
+}
+ul >li{
+    margin-left: 50px;
+    list-style: none;
+    
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
