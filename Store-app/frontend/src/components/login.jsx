@@ -104,7 +104,7 @@ async function submit(event){
             dispatch(store_user({user:res.data.user,token:res.data.token,role:res.data.role}));
             localStorage.setItem('user_token',res.data.token);
             set_errors_messages({
-                ...errors_messages,email_error:'there is no user name with this email',password_error:'this password does not match any user password !'
+                ...errors_messages,email_error:res.data.message
             })
             if(role==='client')
             navigate('/client')
@@ -123,67 +123,53 @@ navigate('/admin')
 
   return (
       
-    <form className='' onSubmit={submit}>
-   
-      <div style={{position: "relative",right: "205px",bottom: "8px",width:"41%"}}>
-        <div className='content-wrapper' style={{width:"130%",display:"flex"}}>
-         <div className="first">
-         <div>
-            <h1>welcome <span style={{textTransform:"lowercase"}}>back</span> </h1>
-            <div> <p>please <span style={{textTransform:"lowercase"}} >enter your details</span></p></div>
-          <div className="lindicaters">Email address</div>
-          <input ref={email} type="email" id="exampleInputEmail1"   aria-describedby="emailHelp"  onChange={Verify_email}/>
-          <p>
-            {is_submited && !email.current.value
-              ? errors_messages.empty_email
-              : errors_messages.email_error}
-          </p>
-        <div>
-          <div className="lindicaters">Password</div>
-          <input
-            ref={password}
-            type="password"
-            id="exampleInputPassword1"
-            onChange={Verify_password}
-          />
-           {
-                      showpassword===true?
-                      <i class="fa-regular fa-eye-slash" onClick={()=>Setshowpassword(!showpassword)}></i>
-                      :
-                     <i class="fa-regular fa-eye" onClick={()=>Setshowpassword(!showpassword)}></i>
-                     }
-          <p>
-            {is_submited && !password.current.value
-              ? errors_messages.empty_password
-              : errors_messages.password_error}
-          </p>
-        </div>
-        </div>
+    <form className='login-form' onSubmit={submit}>
+    <div style={{position: "relative", right: "205px", bottom: "8px", width: "41%"}}>
+      <div className='login-content-wrapper' style={{width: "130%", display: "flex"}}>
+        <div className="login-first">
+          <div>
+            <h1>Welcome <span style={{textTransform: "lowercase"}}>back</span></h1>
+            <div><p>Please <span style={{textTransform: "lowercase"}}>enter your details</span></p></div>
+            <div className="login-lindicaters">Email address</div>
+            <input ref={email} type="email" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={Verify_email} />
+            <p>
+              {is_submited && !email.current.value ? errors_messages.empty_email : errors_messages.email_error}
+            </p>
+            <div>
+              <div className="login-lindicaters">Password</div>
+              <input ref={password} type={showpassword==true?"text":"password"} id="exampleInputPassword1" onChange={Verify_password} />
+              {showpassword === true ? (
+                <i className="fa-regular login-password-icon fa-eye-slash" onClick={() => Setshowpassword(!showpassword)}></i>
+              ) : (
+                <i className="fa-regular login-password-icon fa-eye" onClick={() => Setshowpassword(!showpassword)}></i>
+              )}
+              <p>
+                {is_submited && !password.current.value ? errors_messages.empty_password : errors_messages.password_error}
+              </p>
+            </div>
+          </div>
   
+          <div className="login-user-assistance-links">
+            <input type="checkbox" />
+            <span style={{position: "relative", bottom: "2px", right: "156px"}}>Remember <span style={{textTransform: "lowercase"}}>me</span></span>
+            <span>
+              <Link>Forgot <span style={{textTransform: "lowercase"}}>password</span></Link>
+            </span>
+          </div>
   
-        <div className="user-assistance-links">
-          <input type="checkbox" />
-          <span style={{ position:"relative",bottom:"2px",right: "156px",}}>remember <span style={{textTransform:"lowercase"}}>me</span></span>
-          <span>
-            <Link >Forgot  <span style={{textTransform:"lowercase"}}>password</span></Link>
-          </span>
+          <button type="submit">Login</button>
+  
+          <div className="login-register-link">
+            Don't <span style={{textTransform: "lowercase"}}>have an account?</span> <Link to="/signup">Sign<span style={{textTransform: "lowercase"}}> up</span></Link>
+          </div>
         </div>
-  
-        <button type="submit">Login</button>
-  
-        <div className="register-link">
-           don't <span style={{textTransform:"lowercase"}}>have an account ?</span> <Link to="/signup">sign<span style={{textTransform:"lowercase"}}> up</span></Link>
-        </div>
-         </div>
-         <div className="second" style={{ position: "relative",
-    top: "156px",
-    right: "75px"}} > 
-            <img src='logo.png'/>
-         </div>
+        <div className="login-second" style={{position: "relative", top: "156px", right: "75px"}}>
+          <img src='logo.png' />
         </div>
       </div>
-  
+    </div>
   </form>
+  
   
 
 
