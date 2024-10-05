@@ -78,3 +78,13 @@ p{
     top: 5px;
 }
 
+.passfield{
+    margin-bottom: 0;
+}
+i{
+    position: relative;
+    bottom: 87px;
+    color: red;
+   
+    font-size: 18px;
+}

@@ -9,7 +9,7 @@ import Logout from '../components/Logout';
 import Admin_protected_route from '../components/Admin_protected_route';
 import Adminpage from '../components/adminpage';
 
-const MyRoutes = () => {
+const MyRoutesContent = () => {
   const location = useLocation();
   const noHeaderPath = ['/signup', '/login'];
 
@@ -19,10 +19,10 @@ const MyRoutes = () => {
       {!noHeaderPath.includes(location.pathname) && <Header />}
 
       <Routes>
-        <Route path='*' element={<h1>not found</h1>} />
-        <Route path="/" element={<h1>home</h1>} />
+        <Route path="*" element={<h1>Not Found</h1>} />
+        <Route path="/" element={<h1>Home</h1>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />  
+        <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/client" element={<Client_protected_route><Clientpage /></Client_protected_route>} />
         <Route path="/admin" element={<Admin_protected_route><Adminpage /></Admin_protected_route>} />
@@ -31,10 +31,12 @@ const MyRoutes = () => {
   );
 }
 
-export default function App() {
+const MyRoutes = () => {
   return (
     <BrowserRouter>
-      <MyRoutes />
+      <MyRoutesContent />
     </BrowserRouter>
   );
 }
+
+export default MyRoutes;

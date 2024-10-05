@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
-import "../styles/Loginstyle.css";
 import { useRef } from 'react';
 import axios from 'axios';
 import Axios_client from '../axios client/Axios_clinet';
 import { store_user } from '../redux/userslice';
 import {useDispatch,useSelector} from "react-redux";
 import { Link, useNavigate } from 'react-router-dom';
+import "../styles/Loginstyle.css"
 export default function Login() {
     const dispatch=useDispatch();
     const role = useSelector(state => state.user.role);
+  const [showpassword,Setshowpassword]=useState(false);
+
    
 const email=useRef();
 const password=useRef();
@@ -121,7 +123,7 @@ navigate('/admin')
 
   return (
       
-    <form onSubmit={submit}>
+    <form className='' onSubmit={submit}>
    
       <div style={{position: "relative",right: "205px",bottom: "8px",width:"41%"}}>
         <div className='content-wrapper' style={{width:"130%",display:"flex"}}>
@@ -129,7 +131,7 @@ navigate('/admin')
          <div>
             <h1>welcome <span style={{textTransform:"lowercase"}}>back</span> </h1>
             <div> <p>please <span style={{textTransform:"lowercase"}} >enter your details</span></p></div>
-          <div className="indicaters">Email address</div>
+          <div className="lindicaters">Email address</div>
           <input ref={email} type="email" id="exampleInputEmail1"   aria-describedby="emailHelp"  onChange={Verify_email}/>
           <p>
             {is_submited && !email.current.value
@@ -137,13 +139,19 @@ navigate('/admin')
               : errors_messages.email_error}
           </p>
         <div>
-          <div className="indicaters">Password</div>
+          <div className="lindicaters">Password</div>
           <input
             ref={password}
             type="password"
             id="exampleInputPassword1"
             onChange={Verify_password}
           />
+           {
+                      showpassword===true?
+                      <i class="fa-regular fa-eye-slash" onClick={()=>Setshowpassword(!showpassword)}></i>
+                      :
+                     <i class="fa-regular fa-eye" onClick={()=>Setshowpassword(!showpassword)}></i>
+                     }
           <p>
             {is_submited && !password.current.value
               ? errors_messages.empty_password
@@ -161,15 +169,15 @@ navigate('/admin')
           </span>
         </div>
   
-        <button type="submit">Create Account</button>
+        <button type="submit">Login</button>
   
         <div className="register-link">
-           don't <span style={{textTransform:"lowercase"}}>have an account ?</span> <Link>sign<span style={{textTransform:"lowercase"}}> up</span></Link>
+           don't <span style={{textTransform:"lowercase"}}>have an account ?</span> <Link to="/signup">sign<span style={{textTransform:"lowercase"}}> up</span></Link>
         </div>
          </div>
          <div className="second" style={{ position: "relative",
-    top: "162px",
-    right: "50px"}} > 
+    top: "156px",
+    right: "75px"}} > 
             <img src='logo.png'/>
          </div>
         </div>
