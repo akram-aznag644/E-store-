@@ -29,7 +29,7 @@ class ClinetController extends Controller
 
       if ($user && Hash::check($request->PASSWORD, $user->password)) {
         $token=$user->createToken('Auth_Token')->plainTextToken;
-          return response()->json(['message' => 'valid', 'user' => $user,'token'=>$token,'role'=>$user->role->role], 200);
+          return response()->json([ 'user' => $user,'token'=>$token,'role'=>$user->role->role], 200);
       } if(!$user) {
           return response()->json(['message' => 'the user is not found']);
       }
