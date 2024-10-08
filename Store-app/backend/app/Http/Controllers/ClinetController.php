@@ -31,7 +31,11 @@ class ClinetController extends Controller
         $token=$user->createToken('Auth_Token')->plainTextToken;
           return response()->json(['message' => 'valid', 'user' => $user,'token'=>$token,'role'=>$user->role->role], 200);
       } if(!$user) {
-          return response()->json(['message' => 'Invalid credentials']);
+          return response()->json(['message' => 'the user is not found']);
+      }
+      if($user && !Hash::check($request->PASSWORD, $user->password)){
+        return response()->json(['message' =>'this email does not match the password']);
+
       }
       
       

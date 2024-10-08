@@ -1,80 +1,91 @@
-form{
+.login-form {
     position: relative;
     left: 37%;
-    top:100px;
-    
-}
-form .input, h1 , a{
+    top: 100px;
+  }
+  
+  .login-form .input, h1, a {
     text-transform: capitalize;
-}
-form .form-group {
-    margin-top:15px ;
-}
-input ~ p{
+  }
+  
+  .login-form .form-group {
+    margin-top: 15px;
+  }
+  
+  input ~ p {
     color: red;
-}
-
-input{
+  }
+  
+  input {
     padding: 8.5px 10px;
     border-radius: 4px;
     border: #e9ecef 0.5px solid;
     width: 340px;
     font-family: Arial, Helvetica, sans-serif;
-}
-input:focus{
-outline: none;
-}
-.indicaters {
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .login-lindicaters {
     margin-bottom: 5px;
-    
-}
-button{
+  }
+  
+  button {
     background-color: #D10024;
     color: #fff;
     padding: 8.5px 10px;
     border-radius: 4px;
-    width:  340px;
+    width: 340px;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 13px;
     font-weight: 700;
-   
-}
-.user-assistance-links{
+  }
+  
+  .login-user-assistance-links {
     position: relative;
     right: 160px;
     margin-bottom: 13px;
     margin-top: 13px;
     width: 130%;
-    
-}
-.user-assistance-links a{
+  }
+  
+  .login-user-assistance-links a {
     position: relative;
     right: 68px;
-}
-.register-link {
+  }
+  
+  .login-register-link {
     position: relative;
     left: 55px;
-}
-
-.content-wrapper{
+  }
+  
+  .login-content-wrapper {
     width: 100%;
-    background-color:#1E1F29 ;
+    background-color: #1E1F29;
     color: #fff;
     padding: 42px;
     font-weight: 700;
     border-radius: 5px;
     text-transform: capitalize;
-}
-a{
+  }
+  
+  a {
     color: #D10024;
     text-decoration: none;
-    
-}
-p{
+  }
+  
+  p {
     font-weight: 400;
-}
-.first div  p{
+  }
+  
+  .login-first div p {
     position: relative;
     top: 5px;
-}
-
+  }
+.login-password-icon{
+    position: relative;
+    top: 3px;
+    right: 32px;
+}  

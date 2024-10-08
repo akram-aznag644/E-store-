@@ -19,4 +19,4 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/store_client',[ClinetController::class,'Store']);
-Route::post('/login',[ClinetController::class,'Login']);
+Route::post('/login',[ClinetController::class,'Login']);               
